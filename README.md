@@ -1,3 +1,2 @@
-|💮 ScreenShots| 💮ScreenShots|
-|------|-------|
-|<img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/st.gif" width="400">
+# ScreenShots
+<img src="https://github.com/demola234/Interview-Accessment/blob/main/screenshot/Lekki%20Properties.png" width="800">
