@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:lekkiprop/core/models/images.dart';
 import 'package:lekkiprop/core/models/properties.dart';
 import 'package:lekkiprop/core/models/properties_home.dart';
 
@@ -9,7 +6,6 @@ class PropertyRepository {
   static String mainUrl = "https://sfc-lekki-property.herokuapp.com/api";
 
   final Dio dio = Dio();
-
   var getPropertitiesUrl = "$mainUrl/v1/lekki/property";
   var getPropertitiesId = "$mainUrl/v1/lekki/property/";
   var addProperties = "$mainUrl/v1/lekki/property";

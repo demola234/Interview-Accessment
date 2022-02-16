@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 
+// ignore: must_be_immutable
 class CustomEditText extends StatefulWidget {
   final String label;
   final String hint;

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lekkiprop/core/bloc/add_property_bloc.dart';
+
 import 'package:lekkiprop/core/bloc/getpropertybloc.dart';
 import 'package:lekkiprop/core/models/properties_home.dart';
 import 'components/build_error.dart';
@@ -13,6 +15,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var _bloc = AddPropertyBloc();
+
   @override
   void initState() {
     super.initState();
@@ -28,8 +32,7 @@ class _HomeState extends State<Home> {
             if (snapshot.data!.status.isEmpty) {
               return buildErrorWidget(context, snapshot.data!.message);
             }
-            // return _buildMovieWidget(context, snapshot.requireData);
-            return buildScreenWidget(context, snapshot.requireData);
+            return buildScreenWidget(context, snapshot.requireData, _bloc);
           } else if (snapshot.hasError) {
             return buildErrorWidget(context, snapshot.data!.message);
           } else {

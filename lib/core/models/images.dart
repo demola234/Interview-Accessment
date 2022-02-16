@@ -5,6 +5,7 @@ class Image {
   String originalname;
   String path;
 
+    /// Image Type
   Image({
     required this.sources,
     required this.originalname,
@@ -12,12 +13,8 @@ class Image {
   });
 
   Image.fromJson(Map<String, dynamic> json)
-      : sources = (json["source"] as  List).map((e) => new Datum.fromJson(e)).toList(),
+      : sources =
+            (json["source"] as List).map((e) => new Datum.fromJson(e)).toList(),
         originalname = json["originalname"],
         path = json["path"];
-
-  Map<String, dynamic> toJson() => {
-        "originalname": originalname,
-        "path": path,
-      };
 }

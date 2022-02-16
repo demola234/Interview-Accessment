@@ -3,8 +3,6 @@ class ImagePath {
   static const String _imageDir = "assets/images";
   //icons Path
   static const String _iconDir = "assets/icons";
-  //json Path
-  static const String _jsonDir = "assets/json";
 
   //Images
   static const String H_BACKGOUND = "$_imageDir/Home_Background.jpg";

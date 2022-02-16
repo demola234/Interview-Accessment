@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lekkiprop/core/bloc/add_property_bloc.dart';
 import 'package:lekkiprop/core/models/properties_home.dart';
 import 'package:lekkiprop/utils/colors.dart';
 import 'package:lekkiprop/utils/image_path.dart';
@@ -7,7 +8,7 @@ import 'package:lekkiprop/views/description/property_description.dart';
 import 'assest_boxes.dart';
 import 'property_card.dart';
 
-Widget buildScreenWidget(BuildContext context, ResponseWrapper response) {
+Widget buildScreenWidget(BuildContext context, ResponseWrapper response, AddPropertyBloc _bloc) {
   List items = response.data;
   return Column(children: [
     Container(
@@ -41,7 +42,7 @@ Widget buildScreenWidget(BuildContext context, ResponseWrapper response) {
                   color: ColorPath.PRIMARY_BLUE),
               child: TextButton(
                 onPressed: () {
-                  addProperty(context);
+                  addProperty(context, _bloc);
                 },
                 child: Text(
                   'Add  Property',
@@ -179,4 +180,5 @@ Widget buildScreenWidget(BuildContext context, ResponseWrapper response) {
       ),
     )
   ]);
+
 }

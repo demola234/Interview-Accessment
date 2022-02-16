@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lekkiprop/utils/colors.dart';
 
+// ignore: must_be_immutable
 class CustomTextFields extends StatelessWidget {
   String text;
   String hintText;

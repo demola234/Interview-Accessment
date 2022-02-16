@@ -1,26 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:lekkiprop/core/bloc/add_property_bloc.dart';
 import 'package:lekkiprop/utils/colors.dart';
 
 import 'components/custom_textfield.dart';
 
-addProperty(context) {
+addProperty(context, AddPropertyBloc _bloc) {
   showModalBottomSheet(
     context: context,
     backgroundColor: Colors.transparent,
     isScrollControlled: true,
     builder: (BuildContext context) {
-      final TextEditingController addressController = TextEditingController();
-      final TextEditingController bedroomController = TextEditingController();
-      final TextEditingController sittingRoomController =
-          TextEditingController();
-      final TextEditingController kitchenController = TextEditingController();
-      final TextEditingController toiletController = TextEditingController();
-      final TextEditingController bathroomController = TextEditingController();
-      final TextEditingController propertyOwnerController =
-          TextEditingController();
-      final TextEditingController descriptionController =
-          TextEditingController();
-
       return Container(
         height: MediaQuery.of(context).size.height - 210,
         width: MediaQuery.of(context).size.width,
@@ -52,51 +41,55 @@ addProperty(context) {
                       text: "Address",
                       hintText: "Enter Property Address",
                       textInputType: TextInputType.streetAddress,
-                      controller: addressController),
+                      controller: _bloc.addressController),
                   SizedBox(height: 10),
                   CustomTextFields(
                       text: "Bedrooms",
                       hintText: "Enter Number Bedrooms",
                       textInputType: TextInputType.number,
-                      controller: bedroomController),
+                      controller: _bloc.bedroomController),
                   SizedBox(height: 10),
                   CustomTextFields(
                       text: "Sitting room",
                       hintText: "Enter Number Sittingrooms",
                       textInputType: TextInputType.number,
-                      controller: sittingRoomController),
+                      controller: _bloc.sittingRoomController),
                   SizedBox(height: 10),
                   CustomTextFields(
                       text: "Toilets",
                       hintText: "Enter Number Toilets",
                       textInputType: TextInputType.number,
-                      controller: toiletController),
+                      controller: _bloc.toiletController),
                   SizedBox(height: 10),
                   CustomTextFields(
                       text: "Bath Rooms",
                       hintText: "Enter Number of Bath Rooms",
                       textInputType: TextInputType.name,
-                      controller: bathroomController),
+                      controller: _bloc.bathroomController),
                   SizedBox(height: 10),
                   CustomTextFields(
                       text: "Kitchen",
                       hintText: "Enter Number Kichens",
                       textInputType: TextInputType.number,
-                      controller: kitchenController),
+                      controller: _bloc.kitchenController),
                   SizedBox(height: 10),
                   CustomTextFields(
                       text: "Property Owner",
                       hintText: "Enter Property Owners Name",
                       textInputType: TextInputType.name,
-                      controller: propertyOwnerController),
+                      controller: _bloc.propertyOwnerController),
                   SizedBox(height: 10),
                   CustomTextFields(
                       text: "Descriptiom",
                       hintText: "Enter Property Description",
                       textInputType: TextInputType.name,
-                      controller: descriptionController),
+                      controller: _bloc.descriptionController),
+                  SizedBox(height: 25),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context);
+                      _bloc.appProperty();
+                    },
                     child: Container(
                       height: 50,
                       width: 170,
