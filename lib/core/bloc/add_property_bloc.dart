@@ -7,6 +7,7 @@ class AddPropertyBloc {
   /// Initites The Network Repository
   final PropertyRepository _propertyRepository = PropertyRepository();
   final BehaviorSubject<Datum> _subject = BehaviorSubject<Datum>();
+  
   final TextEditingController addressController = TextEditingController();
   final TextEditingController bedroomController = TextEditingController();
   final TextEditingController sittingRoomController = TextEditingController();

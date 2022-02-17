@@ -27,7 +27,7 @@ class PropertyRepository {
   Future<Datum> addProperty(Datum addProperty) async {
     try {
       Response response =
-          await dio.post(addProperties, data: addProperty.toJson());
+      await dio.post(addProperties, data: addProperty.toJson());
       print(response.data);
       return Datum.fromJson(response.data);
     } catch (e, stackTrace) {
