@@ -87,8 +87,8 @@ addProperty(context, AddPropertyBloc _bloc) {
                   SizedBox(height: 25),
                   InkWell(
                     onTap: () {
-                      Navigator.pop(context);
                       _bloc.appProperty();
+                      Navigator.pop(context);
                     },
                     child: Container(
                       height: 50,

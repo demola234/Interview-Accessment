@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:lekkiprop/core/models/properties.dart';
+import 'package:lekkiprop/core/models/propertyy.dart';
 import 'package:lekkiprop/core/repository/repository.dart';
 import 'package:rxdart/subjects.dart';
 
 class AddPropertyBloc {
   /// Initites The Network Repository
   final PropertyRepository _propertyRepository = PropertyRepository();
-  final BehaviorSubject<Datum> _subject = BehaviorSubject<Datum>();
-  
+  final BehaviorSubject<Propertiess> _subject = BehaviorSubject<Propertiess>();
+
   final TextEditingController addressController = TextEditingController();
   final TextEditingController bedroomController = TextEditingController();
   final TextEditingController sittingRoomController = TextEditingController();
@@ -27,7 +27,7 @@ class AddPropertyBloc {
     String _propertyOwner = propertyOwnerController.text;
     String _description = descriptionController.text;
 
-    final request = Datum(
+    final request = Propertiess(
         address: _address,
         bedroom: _bedroom,
         sittingRoom: _sittingroom,
@@ -35,8 +35,13 @@ class AddPropertyBloc {
         bathroom: _bathroom,
         toilet: _toilet,
         propertyOwner: _propertyOwner,
-        description: _description);
-    Datum response = await _propertyRepository.addProperty(request);
+        description: _description,
+        images: [],
+        type: 'duplex',
+        validFrom: DateTime.now(),
+        validTo: DateTime.now());
+
+    Propertiess response = await _propertyRepository.add(request);
     _subject.sink.add(response);
   }
 
@@ -44,7 +49,7 @@ class AddPropertyBloc {
     _subject.close();
   }
 
-  BehaviorSubject<Datum> get subject => _subject;
+  BehaviorSubject<Propertiess> get subject => _subject;
 }
 
 final addPropertyBloc = AddPropertyBloc();

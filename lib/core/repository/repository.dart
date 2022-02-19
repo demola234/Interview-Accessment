@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:lekkiprop/core/models/properties.dart';
 import 'package:lekkiprop/core/models/properties_home.dart';
+import 'package:lekkiprop/core/models/propertyy.dart';
 
 class PropertyRepository {
   static String mainUrl = "https://sfc-lekki-property.herokuapp.com/api";
@@ -27,9 +28,21 @@ class PropertyRepository {
   Future<Datum> addProperty(Datum addProperty) async {
     try {
       Response response =
-      await dio.post(addProperties, data: addProperty.toJson());
+          await dio.post(addProperties, data: addProperty.toJson());
       print(response.data);
       return Datum.fromJson(response.data);
+    } catch (e, stackTrace) {
+      print("Expection occured: $e stracktrace: $stackTrace");
+      throw e;
+    }
+  }
+
+  Future<Propertiess> add(Propertiess addProperty) async {
+    try {
+      Response response =
+          await dio.post(addProperties, data: addProperty.toJson());
+      print(response.data);
+      return Propertiess.fromJson(response.data);
     } catch (e, stackTrace) {
       print("Expection occured: $e stracktrace: $stackTrace");
       throw e;
